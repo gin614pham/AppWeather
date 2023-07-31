@@ -23,6 +23,8 @@ const Header = (props: Props) => {
       <TextInput
         style={styles.headerInput}
         placeholder="Search"
+        placeholderTextColor={'white'}
+        cursorColor={'white'}
         value={props.search}
         onChangeText={props.setSearch}
       />

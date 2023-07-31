@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 import {GetWeather} from '../api/GetWeather';
 import IconWeather from '../components/IconWeather';
+import BackgroundMap from '../utils/BackgroundMap';
 
 interface weather {
   coord: {
@@ -51,7 +52,7 @@ interface weather {
 const WeatherScreen = () => {
   const [search, setSearch] = useState('');
   const [isErrorInput, setIsErrorInput] = useState(false);
-  const correctRegex = /^[a-zA-Z0-9]+$/;
+  const correctRegex = /^[a-zA-Z0-9 ]+$/;
   const [data, setData] = useState<weather | null>();
   const [loading, setLoading] = useState(false);
 
@@ -83,7 +84,7 @@ const WeatherScreen = () => {
     <View style={styles.container}>
       <ImageBackground
         style={styles.image}
-        source={require('../../assets/images/01d.jpg')}
+        source={BackgroundMap(data?.cod === 200 ? data?.weather[0].icon : '')}
         resizeMode="cover">
         <Header
           search={search}
