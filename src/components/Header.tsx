@@ -19,7 +19,7 @@ interface Props {
 const Header = (props: Props) => {
   return (
     <SafeAreaView style={styles.header}>
-      <Icon name="location-arrow" size={30} color="#7b7f85" />
+      <Icon name="location-arrow" size={30} color="white" />
       <TextInput
         style={styles.headerInput}
         placeholder="Search"
@@ -27,7 +27,7 @@ const Header = (props: Props) => {
         onChangeText={props.setSearch}
       />
       <TouchableOpacity onPress={props.handleSearch}>
-        <Icon name="search" size={30} color="#7b7f85" />
+        <Icon name="search" size={30} color="white" />
       </TouchableOpacity>
       <AlertDialog
         isVisible={props.isErrorInput}
@@ -44,19 +44,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderRadius: 30,
-    borderColor: 'white',
+    borderColor: 'rgba(52, 52, 52, 0.0)',
     padding: 5,
     paddingEnd: 10,
     paddingStart: 10,
     marginHorizontal: 12,
     marginVertical: 4,
     height: 'auto',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'rgba(52, 52, 52, 0.1)',
   },
   headerInput: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#7b7f85',
+    color: 'white',
     flex: 8,
     marginEnd: 8,
     textAlign: 'right',
@@ -64,12 +64,7 @@ const styles = StyleSheet.create({
   headerMenu: {
     flex: 1,
     textAlign: 'center',
-    color: '#7b7f85',
-  },
-  avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    color: 'white',
   },
 });
 

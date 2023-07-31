@@ -21,6 +21,22 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
+  title: {
+    fontSize: 20,
+    fontWeight: 'normal',
+  },
+  button: {
+    borderRadius: 10,
+    padding: 10,
+    elevation: 2,
+    backgroundColor: '#2196F3',
+    marginTop: 10,
+    width: 100,
+  },
+  text: {
+    textAlign: 'center',
+    color: 'white',
+  },
 });
 
 interface Props {
@@ -37,9 +53,9 @@ const AlertDialog = (props: Props) => {
       onRequestClose={props.onClose}>
       <View style={styles.container}>
         <View style={styles.modal}>
-          <Text>半角英数で入力してください</Text>
-          <TouchableOpacity onPress={props.onClose}>
-            <Text>OK</Text>
+          <Text style={styles.title}>半角英数で入力してください</Text>
+          <TouchableOpacity style={styles.button} onPress={props.onClose}>
+            <Text style={styles.text}>OK</Text>
           </TouchableOpacity>
         </View>
       </View>
