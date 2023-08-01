@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const GetWeather = async (name: string) => {
+export const getWeather = async (name: string) => {
   try {
     const res = await axios.get(
       'https://api.openweathermap.org/data/2.5/weather?q=' +

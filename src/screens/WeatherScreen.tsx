@@ -1,53 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import Header from '../components/Header';
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
-import {GetWeather} from '../api/GetWeather';
+import {getWeather} from '../api/getWeather';
 import IconWeather from '../components/IconWeather';
 import BackgroundMap from '../utils/BackgroundMap';
-
-interface weather {
-  coord: {
-    lon: number;
-    lat: number;
-  };
-  weather: [
-    {
-      id: number;
-      main: string;
-      description: string;
-      icon: string;
-    },
-  ];
-  base: string;
-  main: {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    humidity: number;
-  };
-  visibility: number;
-  wind: {
-    speed: number;
-    deg: number;
-  };
-  clouds: {
-    all: number;
-  };
-  dt: number;
-  sys: {
-    type: number;
-    id: number;
-    country: string;
-    sunrise: number;
-    sunset: number;
-  };
-  timezone: number;
-  id: number;
-  name: string;
-  cod: number;
-}
+import {weather} from '../types';
 
 const WeatherScreen = () => {
   const [search, setSearch] = useState('');
@@ -63,7 +20,7 @@ const WeatherScreen = () => {
   const fetchWeather = async (name: string) => {
     setLoading(true);
     try {
-      const weather = await GetWeather(name);
+      const weather = await getWeather(name);
       setData(weather);
     } finally {
       setLoading(false);

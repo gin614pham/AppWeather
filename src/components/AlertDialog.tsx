@@ -1,6 +1,30 @@
 import React from 'react';
 import {Modal, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
+interface Props {
+  isVisible: boolean;
+  onClose: () => void;
+}
+
+const AlertDialog = (props: Props) => {
+  return (
+    <Modal
+      animationType="fade"
+      transparent={true}
+      visible={props.isVisible}
+      onRequestClose={props.onClose}>
+      <View style={styles.container}>
+        <View style={styles.modal}>
+          <Text style={styles.title}>半角英数で入力してください</Text>
+          <TouchableOpacity style={styles.button} onPress={props.onClose}>
+            <Text style={styles.text}>OK</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </Modal>
+  );
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -38,29 +62,5 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 });
-
-interface Props {
-  isVisible: boolean;
-  onClose: () => void;
-}
-
-const AlertDialog = (props: Props) => {
-  return (
-    <Modal
-      animationType="fade"
-      transparent={true}
-      visible={props.isVisible}
-      onRequestClose={props.onClose}>
-      <View style={styles.container}>
-        <View style={styles.modal}>
-          <Text style={styles.title}>半角英数で入力してください</Text>
-          <TouchableOpacity style={styles.button} onPress={props.onClose}>
-            <Text style={styles.text}>OK</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </Modal>
-  );
-};
 
 export default AlertDialog;
